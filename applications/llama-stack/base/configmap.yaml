@@ -26,11 +26,7 @@ data:
       model_id: ${env.DEEPSEEK_MODEL:=}
       provider_id: deepseek
       model_type: llm
-    - metadata: {}
-      model_id: llama-4-scout-17b-16e-w4a16
-      provider_id: vllm-llama-4-guard
-      provider_model_id: llama-4-scout-17b-16e-w4a16
-      model_type: llm
+
     - metadata:
         embedding_dimension: 384
       model_id: all-MiniLM-L6-v2
@@ -55,18 +51,7 @@ data:
       - provider_id: sentence-transformers
         provider_type: inline::sentence-transformers
         config: {}
-      - provider_id: vllm-llama-4-guard
-        provider_type: "remote::vllm"
-        config:
-          url: "https://llama-4-scout-17b-16e-w4a16-maas-apicast-production.apps.prod.rhoai.rh-aiservices-bu.com:443/v1"
-          max_tokens: 110000
-          api_token: ${env.LLAMA_4_SCOUT_17B_16E_W4A16_API_TOKEN}
-          tls_verify: true
-      safety:
-      - provider_id: llama-guard
-        provider_type: inline::llama-guard
-        config:
-          excluded_categories: []
+
       agents:
       - provider_id: meta-reference
         provider_type: inline::meta-reference
